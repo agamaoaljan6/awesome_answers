@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: awesome_answers_may_2019_development
+  database: awesome_answers_bootstrap
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

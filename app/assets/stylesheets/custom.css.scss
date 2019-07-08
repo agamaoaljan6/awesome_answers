@@ -1,0 +1,72 @@
+@import "bootstrap";
+.jumbotron {
+    background-color: rebeccapurple;
+    background-size:cover;
+    height: 32em;
+    margin-left: 20px;
+}
+
+.jumbotron h1 {
+    color: #fff;
+    text-align:center;
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+    font-weight: bold;
+    margin-top: 3em;
+}
+
+.card {
+    margin-bottom: 1em;
+}
+
+.awesome-header {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    margin-top: 7em;
+}
+
+.sign-in {
+    min-height: 55vh;
+}
+
+.sign-up {
+    min-height: 55vh;
+}
+
+footer {
+    margin-top: 45px;
+    padding-top: 5px;
+    border-top: 1px solid #eaeaea;
+    clear: #777;
+}
+
+footer a:hover {
+    color:#222;
+}
+
+footer small {
+    float: left;
+}
+
+footer ul {
+    float:right;
+    list-style: none;
+}
+
+footer ul li {
+    float: left;
+    margin-left: 15px;
+}
+
+.create-btn {
+    margin-left: 1em;
+}
+
+.question-actions {
+    padding-top: 1em;
+    padding-bottom: 1.5em;
+
+}
+.question-answer {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}

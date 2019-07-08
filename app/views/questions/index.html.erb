@@ -1,9 +1,22 @@
-<h1>All Question</h1>
+
+<h1 class="question-index" align="center">All Questions</h1>
 
 <% @questions.each do |question| %>
-  <div>
-    <h2><%= link_to question.title, question_path(question) %></h2>
-    <p><%= question.body %></p>
-    <hr>
-  </div>
-<% end %>
+<div class="row">
+    <div class="col-sm-10 offset-1">
+        <div class="card card-body bg-light">
+            <div class="question-title">
+                <%= link_to question.title, question_path(question)%>
+            </div>
+            <div class="question-body">
+                <%= question.body%>
+            </div>
+<!--           
+    <div class="question-actions">
+        <%= link_to  "Edit this question", edit_question_path(question), class: "btn btn-sm btn-primary" %>
+        <%= link_to 'Delete this listing', question_path(question), method: :delete, data: {confirm: "Are you sure?"}, class:"btn btn-sm btn-danger ml-1"%>
+    </div> -->
+</div>
+</div>
+</div>
+<%end%>

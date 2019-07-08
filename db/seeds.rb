@@ -11,6 +11,9 @@
 # rails db:seed
 
 
+# Answer = Post 
+# Question = Comment
+
 NUM_QUESTIONS = 200
 NUM_USERS = 10
 PASSWORD = "supersecret"
