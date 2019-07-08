@@ -24,9 +24,13 @@ name-value nested in a hash named after the class of the passed in model.
     </strong><%=@question.created_at%></h5>
     <hr>
   <div class="question-actions row">
+
+    <%if can? :crud, @question%> 
     <%= link_to  "Edit this question", edit_question_path(@question), class: "btn btn-xs btn-primary" %>
     <%= link_to  "View all questions", questions_path, class: "btn btn-xs btn-success ml-2" %>
     <%= link_to 'Delete this listing', question_path(@question), method: :delete, data: {confirm: "Are you sure?"}, class:"btn btn-xs btn-danger ml-2"%>
+  <%end%>
+
   </div>
 </div>
 <br>
@@ -63,7 +67,9 @@ name-value nested in a hash named after the class of the passed in model.
             <%= answer.body %>
           </div>
           <div class="col-sm-offset-4 col-sm-2">
+            <%if can? :crud, answer %>
             <%= link_to("Delete",question_answer_path(@question, answer),method: :delete,data: {confirm: "Are you sure?"},class: 'btn btn-primary del-btn')%>
+            <%end%>
           </div>
           <p class="question-answer"> Answered <%= time_ago_in_words(answer.created_at) %> ago </p>
         </div>

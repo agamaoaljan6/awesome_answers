@@ -6,13 +6,16 @@ class Ability
   def initialize(user)
     # Define abilities for the passed in user here. For example:
     #
-    #   user ||= User.new # guest user (not logged in)
+    user ||= User.new # guest user (not logged in)
     #   if user.admin?
     #     can :manage, :all
     #   else
     #     can :read, :all
     #   end
     #
+    if user.is_admin?
+      can :manage, :all
+    end
     # The first argument to `can` is the action you are giving the user
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions
@@ -39,8 +42,7 @@ class Ability
     # In this case, :crud can be used wherever :create,
     # :read, :update or :destroy would be used.
     alias_action :create, :read, :update, :destroy, to: :crud
-    
-    
+  
     
     # To define a permission for a User, use the `can`
     # method inside of this class' initialize method.
@@ -59,6 +61,14 @@ class Ability
     end
     # We can also write abilities like:
     # can :crud, Question, user_id: user.id
+    can(:crud, Answer) do |answer|
+      # If we wanted to allow both the answer owner and 
+      # the question owner to have the ability to 
+      # "crud answers"
+      # answer.user == user || answer.question.user = user
+      # answer.user == user
+    end
 
   end
+
 end

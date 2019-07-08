@@ -2,8 +2,11 @@ class QuestionsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :find_question, only: [:show, :edit, :update, :destroy]
   before_action :authorize!, only: [:edit,:update,:destroy]
-
   
+  def index
+    @questions = Question.all
+  end
+
   def new
     @question = Question.new
   end
@@ -42,10 +45,6 @@ class QuestionsController < ApplicationController
     @answer = Answer.new
     # For the list of answers
     @answers = @question.answers.order(created_at: :desc)
-  end
-
-  def index
-    @questions = Question.all
   end
 
   def edit

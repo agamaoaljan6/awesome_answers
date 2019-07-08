@@ -21,13 +21,19 @@ class AnswersController < ApplicationController
 
   def destroy
     @answer = Answer.find params[:id]
+    if can?(:crud, @answer)
     @answer.destroy
     redirect_to question_path(@answer.question)
+    else 
+    # head: :unauthorized
+    redirect_to root_path, alert: "Not Authorized!"
+    end
   end
 
   private
 
   def answer_params
     params.require(:answer).permit(:body)
-  end
+  end  
+  
 end
