@@ -1,7 +1,9 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :find_question, only: [:show, :edit, :update, :destroy]
+  before_action :authorize!, only: [:edit,:update,:destroy]
 
+  
   def new
     @question = Question.new
   end
@@ -76,4 +78,10 @@ class QuestionsController < ApplicationController
     # get the current value inside of the db
     @question = Question.find params[:id]
   end
+
+  def authorize! 
+    redirect_to root_path, alert: "Not Authorized!" unless 
+    can?(:crud, @question)
+  end 
+
 end
